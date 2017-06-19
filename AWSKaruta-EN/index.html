@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ja">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no" >
+<head><title>AWS Karuta Ver.20161021</title></head>
+<style type="text/css"><!--
+button {
+	font-size: 300%;
+	font-family: sans-serif;
+	padding: 10px 0;
+	margin: 10px 0;
+	border: 1px solid #DDD;
+	color: #111;
+	background: -moz-linear-gradient(top,#FFF 0%,#EEE);
+	background: -webkit-gradient(linear,left top,left bottom,from(#FFF),to(#EEE));
+}
+div {
+	word-wrap:break-all;
+	font-size: 100%;
+	font-family: sans-serif;
+	background-color: #ffffcc;
+	padding: 20px;
+	border: 1px solid #f0f0f0;
+	box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+	border-radius: 5px;
+}
+img {
+	width: 40%;
+	height: 40%;
+}
+#fwd {
+	position:absolute;
+	right:10px;
+}
+//--></style>
+<body onload="init();fwd();">
+<script>
+function $(id){return document.getElementById(id);};
+
+var mx = 71;
+var ar = new Array();
+var rnd, unq, seq;
+var currentNo;
+function init(){
+	currentNo = 0;
+	seq = 0;
+	for(var i = 0; i < mx; i++){
+		$("f" + i).style.display = "none";
+		$("i" + i).style.display = "none";
+
+		unq = false;
+		while(!unq){
+			rnd = Math.floor(Math.random() * mx);
+			for (var j in ar){
+				unq = (ar[j] == rnd) ? false : true;
+				if(!unq) break;
+			}
+			ar[i] = unq ? rnd : null;
+		}
+	}
+}
+
+function rev(){
+	if(seq == 1) return;
+	$("f" + ar[seq - 1]).style.display = "none";
+	$("i" + ar[seq - 1]).style.display = "none";
+	$("f" + ar[seq - 2]).style.display = "";
+	$("i" + ar[seq - 2]).style.display = "";
+	--seq;
+	--currentNo;
+	dispCurrent();
+}
+
+function fwd(){
+	if(seq == mx) return;
+	$("f" + ar[seq]).style.display = "";
+	$("i" + ar[seq]).style.display = "";
+
+	if (seq != 0) {
+		$("f" + ar[seq - 1]).style.display = "none";
+		$("i" + ar[seq - 1]).style.display = "none";
+	}
+	seq++;
+	currentNo++;
+	dispCurrent();
+}
+
+function dispCurrent() {
+	$("current").innerHTML = currentNo + "/" + mx;
+}
+</script>
+<button id="rev" onclick="rev()"><<戻る</button>
+<button id="fwd" onclick="fwd()">次へ>></button>
+<div id="current"></div>
+
+<div id="f0">It is a fully managed, secure enterprise storage and sharing service.Users can comment on files, send them to others for feedback, and upload new versions without having to resort to emailing multiple versions of their files as attachments.It was first announced by the name Amazon Zocalo.   -- Amazon WorkDocs</div>
+<div id="f1">It is a secure, managed business email and calendar service. It gives users the ability to seamlessly access their email, contacts, and calendars using Microsoft Outlook, their web browser, or their native iOS and Android email applications. You can integrate it with your existing corporate directory and control both the keys that encrypt your data and the location in which your data is stored.   -- Amazon WorkMail</div>
+<div id="f2">It is a fully managed, secure desktop computing service which runs on the AWS cloud.It allows you to easily provision cloud-based virtual desktops and provide your users access to the documents, applications, and resources they need from any supported device, including Windows and Mac computers, Chromebooks, iPads, Fire tablets, and Android tablets.  The user disk area is backed up in S3 periodically. -- Amazon WorkSpaces</div>
+<div id="f3">It is a web service that makes it easy to quickly and cost-effectively process vast amounts of data.It simplifies big data processing, providing a managed Hadoop framework that makes it easy, fast, and cost-effective for you to distribute and process vast amounts of your data across dynamically scalable Amazon EC2 instances.  -- Amazon Elastic MapReduce(EMR)</div>
+<div id="f4">It is a managed service that makes it easy to deploy, operate, and scale Elasticsearch in the AWS Cloud. -- Amazon Elasticsearch Service</div>
+<div id="f5">It is a service that makes it easy for developers of all skill levels to use machine learning technology. -- Amazon Machine Learning</div>
+<div id="f6">It is a very fast, business intelligence (BI) service that makes it easy to build visualizations, perform ad-hoc analysis, and quickly get business insights from their data. It uses a new, Super-fast, Parallel, In-memory Calculation Engine (“SPICE”) to perform advanced calculations and render visualizations rapidly. - Amazon QuickSight</div>
+<div id="f7">It is a web service that helps you reliably process and move data between different AWS compute and storage services, as well as on-premise data sources, at specified intervals. You can regularly access your data where it’s stored, transform and process it at scale, and efficiently transfer the results to AWS services.- AWS Data Pipeline</div>
+<div id="f8">It is a platform for streaming data on AWS, offering powerful services to make it easy to load and analyze streaming data, and also providing the ability for you to build custom streaming data applications for specialized needs. -Amazon Kinesis</div>
+<div id="f9">It is a fully managed service that makes it easy to create, publish, maintain, monitor, and secure APIs at any scale. With a few clicks in the AWS Management Console, you can create an API that acts as a “front door” for applications to access data, business logic, or functionality from your back-end services, such as workloads running on Amazon Elastic Compute Cloud (Amazon EC2), code running on AWS Lambda, or any Web application. - Amazon API Gateway</div>
+<div id="f10">It is a managed service in the AWS Cloud that makes it simple and cost-effective to set up, manage, and scale a search solution for your website or application. - Amazon CloudSearch</div>
+<div id="f11">It is media transcoding in the cloud that is highly scalable, easy to use, and a cost effective way  to convert (or “transcode”) media files from their source format into versions that will playback on devices like smartphones, tablets and PCs.　You can also create an audio-only alternate stream. -- Amazon Elastic Transcoder</div>
+<div id="f12">It is a cost-effective email service built on the reliable and scalable infrastructure that Amazon.com developed to serve its own customer base. -- Amazon Simple Email Service (Amazon SES)</div>
+<div id="f13">It is a fast, reliable, scalable, fully managed message queuing service.  -- Amazon SQS(Simple Queue Service)</div>
+<div id="f14">It is a fully managed workflow service for building scalable, resilient applications.
+It acts as the coordination hub for all of the different components of your application. -- Amazon SWF(Simple Workflow Service)</div>
+<div id="f15">This enables you to stream your applications with high-resolution graphics from the cloud.--  Amazon AppStream</div>
+<div id="f16"> It encourages scalable deployment of applications by providing a web service through which a user can boot an Amazon Machine Image to configure a virtual machine.  --  Amazon EC2(Elastic Compute Cloud)</div>
+<div id="f17">A fully-managed Docker container registry that makes it easy for developers to store, manage, and deploy Docker container images.  It can be integrated into Amazon EC2 Container Service (ECS) -- Amazon EC2 Container Registry (ECR)</div>
+<div id="f18">A Docker container supported management service. You can easily manage clusters of Amazon Elastic Compute Cloud (Amazon EC2). -- Amazon EC2 Container Service (ECS)</div>
+<div id="f19">It has OS and software installed and has the ability to save a disk image of a virtual machine.  -- AmazonMachine Image(AMI)</div>
+<div id="f20">Using git and IDE in the AWS cloud,  it's an easy and quick application deployment service. -- AWS Elastic Beanstalk</div>
+<div id="f21">It automatically distributes incoming application traffic across multiple Amazon EC2 instances -- Amazon Elastic Load Balancer(ELB)</div>
+<div id="f22">It is a compute service where you can upload your code and this service can run the code on your behalf using AWS infrastructure. You can easily build data processing triggers for AWS services like Amazon S3 and Amazon DynamoDB.  -- AWS Lambda</div>
+<div id="f23">This service supports homogeneous migrations such as Oracle to Oracle, and also heterogeneous migrations between different database platforms, such as Oracle to MySQL or MySQL to Amazon Aurora.  -- AWS Database Migration Service</div>
+<div id="f24">This service improves the performance of web applications by retrieving information from managed in-memory caches such as memcached or Redis. -- Amazon ElastiCache</div>
+<div id="f25">A full managed RDBMS service. Complex administration processes like patching the database software, backing up databases and enabling point-in-time recovery are managed automatically. It uses MySQL, Oracle Database, SQLServer and PostgreSQL. -- Amazon Relational Database Service(RDS)</div>
+<div id="f26">It's a full-managed, petabyte-scale data warehouse service. After you provision your cluster, you can upload your data set and then perform data analysis queries on this.  -- Amazon Redshift</div>
+<div id="f27">Incremental backups on EBS that, when saved to Amazon S3, only the blocks on the device change. -- Amazon EBS Snapshots</div>
+<div id="f28">A fully managed NoSQL database service. The seamless reading and writing performance  can be designated as a " unit", and it's possible to change it anytime as the need arises.  -- Amazon DynamoDB</div>
+<div id="f29">A secure, highly scalable, managed source control service that hosts private Git repositories.  -- AWS CodeCommit</div>
+<div id="f30"> It provides automated code deployment  and updates to EC2 instances. It's able to release a new function easily and quickly while avoiding down time.-- AWS CodeDeploy</div>
+<div id="f31">It's a continuous delivery service for fast and reliable application updates.
+When you change a code, you can build, test, and deploy based on the release process models you define. -- AWS CodePipeline</div>
+<div id="f32">This service is a managed cloud platform that lets connected devices easily and securely interact with cloud applications and other devices. This service can support billions of devices and trillions of messages, and can process and route those messages to AWS endpoints and to other devices reliably and securely. -- AWS IoT</div>
+<div id="f33">It can manage a collection of related AWS resources on using templates. It also can deploy and update a template and its associated collection of resources (called a stack)　 -- AWS CloudFormation</div>
+<div id="f34">This records the calls to AWS APIs and has the function capable of saving the log file to the specified S3 bucket. Each time the log file is stored, it is possible to send a notification to Amazon SNS topics. -- AWS CloudTrail</div>
+<div id="f35">Together with AWS cloud resources, this is a service that can monitor the applications that run on AWS. It also can monitor billing. -- Amazon CloudWatch</div>
+<div id="f36">A configuration service that provides you with a AWS resource inventory, configuration history, and configuration change notifications to enable security and governance. The resource inventory changes the status of the configuration items on the S3 log. It is possible to refer to the configuration history of a resource  to view changes in chronological order. -- AWS Config</div>
+<div id="f37">Chef recipes that can be utilized to setup the DevOps solutions services. It manages a logical model of the layers of various resources  -- AWS OpsWorks</div>
+<div id="f38">A new console for developing mobile apps.
+The user can develop applications such as user authentication, data storage, content delivery, backend logic, analytics dashboards, and push notifications.-- AWS Mobile Hub</div>
+<div id="f39">Not only does it provide user authentication and synchronization of data, this simple service safely synchronizes a users application data between mobile devices. -- Amazon Cognito</div>
+<div id="f40">Test service for Android, iOS, FireOS applications. -- AWS Device Farm</div>
+<div id="f41">With it, you can measure app usage and app revenue. By tracking key trends such as new vs. returning users, app revenue, user retention, and custom in-app behavior events, you can make data-driven decisions to increase engagement and monetization for your app. You can view key charts in the Mobile Analytics console and automatically export your app event data to Amazon S3 and Amazon Redshift to run custom analysis. -- Amazon Mobile Analytics</div>
+<div id="f42">It is a fast, flexible, fully managed push notification service that lets you send individual messages or to fan-out messages to large numbers of recipients. It makes it simple and cost effective to send push notifications to mobile device users, email recipients or even send messages to other distributed services. -- Amazon Simple Notification Service(SNS)</div>
+<div id="f43">It makes it easy to establish a dedicated network connection from your premises to AWS -- AWS Direct Connect(DX)</div>
+<div id="f44">It lets you provision a logically isolated section of the Amazon Web Services (AWS) cloud where you can launch AWS resources in a virtual network that you define. -- Amazon Virtual Private Cloud(VPC)</div>
+<div id="f45">It is a highly available and scalable cloud Domain Name System (DNS) web service. -- Amazon Route53</div>
+<div id="f46">It helps you meet corporate, contractual and regulatory compliance requirements for data security by using dedicated Hardware Security Module appliances within the AWS cloud. With it, you control the encryption keys and cryptographic operations performed by the Hardware Security Module appliances. -- AWS CloudHSM</div>
+<div id="f47">It makes it easy to setup and run Microsoft Active Directory (AD) in the AWS cloud, or connect your AWS resources with an existing on-premises Microsoft Active Directory. -- AWS Directory Service</div>
+<div id="f48">It enables you to securely control access to AWS services and resources for your users. Using it, you can create and manage AWS users and groups, and use permissions to allow and deny their access to AWS resources. -- AWS Identify and Access Management(IAM)</div>
+<div id="f49">It is a managed service that makes it easy for you to create and control the encryption keys used to encrypt your data, and uses Hardware Security Modules (HSMs) to protect the security of your keys. -- AWS Key Management Service (KMS)</div>
+<div id="f50">It is a fully managed service that provides you with an AWS resource inventory, configuration history, and configuration change notifications to enable security and governance. Config Rules enables you to create rules that automatically check the configuration of AWS resources recorded by it. -- AWS Service Catalog</div>
+<div id="f51">An online resource to help you reduce cost, increase performance, and improve security by optimizing your AWS environment, It provides real time guidance to help you provision your resources following AWS best practices. -- AWS Trusted Advisor</div>
+<div id="f52">It is a web application firewall that helps protect your web applications from common web exploits that could affect application availability, compromise security, or consume excessive resources. -- AWS Web Application Firewall(WAF)</div>
+<div id="f53">It is a service that accelerates transferring large amounts of data into and out of AWS using physical storage appliances, bypassing the Internet. -- AWS Import/Export</div>
+<div id="f54">It is a global content delivery network (CDN) service that accelerates delivery of your websites, APIs, video content or other web assets. -- Amazon CloudFront</div>
+<div id="f55">It is a secure, durable, and extremely low-cost cloud storage service for data archiving and long-term backup. You can access this through the Management Console or Amazon S3 API's to manage data. -- Amazon Glacier</div>
+<div id="f56">It is a simple web service interface that stores and retrieves any amount of data from anywhere on the web. It also provides static website hosting. -- Amazon Simple Storage Service(S3)</div>
+<div id="f57">It is a service connecting an on-premises software appliance with cloud-based storage to provide seamless and secure integration between an organization’s on-premises IT environment and AWS’s storage infrastructure. It can connect to the iSCSI interface which provides virtual storage.-- AWS Storage Gateway</div>
+<div id="f58">It's a Network File System version 4 protocol supported elastic file storage service. -- Amazon Elastic File System (EFS)</div>
+<div id="f59"> A petabyte-scale data transport solution that uses secure appliances to transfer large amounts of data into and out of the AWS cloud. Using it </div>
+<div id="f60">It is an automated security assessment service that helps improve the security and compliance of applications deployed on AWS. -- Amazon Inspector</div>
+<div id="f61">It is a service that lets you easily provision, manage, and deploy Secure Sockets Layer/Transport Layer Security (SSL/TLS) certificates for use with AWS services.-- AWS Certificate Manager</div>
+<div id="f62">It can help you ensure that your application always has the right amount of capacity to handle the current traffic demands.
+It can dynamically increase and decrease capacity as needed. -- Amazon EC2 Auto Scaling</div>
+<div id="f63">This enables you to bid on unused EC2 instances, which can lower your Amazon EC2 costs significantly. -- Amazon EC2 Spot Instance</div>
+<div id="f64">It is a horizontally scaled, redundant, and highly available VPC component that allows communication between instances in your VPC and the Internet. -- Internet Gateway</div>
+<div id="f65">This VPC component refers to the connection between your VPC and your own network. -- Virtua Private Gateway</div>
+<div id="f66">It allows you to route traffic between the VPCs using private IP addresses; as if they are part of the same network.-- VPC Peering</div>
+<div id="f67">A collection of resource record sets that Amazon Route 53 hosts. Like a traditional DNS zone file, it represents a collection of records that are managed together under a single domain name. For each public one of these that you create, Amazon Route 53 automatically creates a name server (NS) resource record set and a start of authority (SOA) resource record set. -- Hosted Zone</div>
+<div id="f68">To store an object in Amazon S3, you must create this container. The name you choose must be unique across all existing bucket names in Amazon S3.-- Amazon S3 Bucket</div>
+<div id="f69">Using a network of them around the world, Amazon CloudFront caches copies of your static content close to viewers, lowering latency when they download your objects and giving you the high, sustained data transfer rates needed to deliver large popular objects to end users at scale.-- Amazon CloudFront Edge Locations</div>
+<div id="f70">It provides block level storage volumes for use with EC2 instances. It's volumes are attached to an EC2 instance are exposed as storage volumes that persist independently from the life of the instance. -- Amazon Elastic Block Store</div>
+
+<div id="i0"><img src="img/AmazonWorkDocs.png" /></div>
+<div id="i1"><img src="img/AmazonWorkMail.png" /></div>
+<div id="i2"><img src="img/AmazonWorkSpaces.png" /></div>
+<div id="i3"><img src="img/Analytics_AmazonEMR.png" /></div>
+<div id="i4"><img src="img/Analytics_AmazonElasticsearch.png" /></div>
+<div id="i5"><img src="img/Analytics_AmazonMachineLearning.png" /></div>
+<div id="i6"><img src="img/Analytics_AmazonQuickSight.png" /></div>
+<div id="i7"><img src="img/Analytics_DataPipeline.png" /></div>
+<div id="i8"><img src="img/Analytics_Kinesis.png" /></div>
+<div id="i9"><img src="img/ApplicationServices_APIGateway.png" /></div>
+<div id="i10"><img src="img/ApplicationServices_AmazonCloudSearch.png" /></div>
+<div id="i11"><img src="img/ApplicationServices_AmazonElasticTranscoder.png" /></div>
+<div id="i12"><img src="img/ApplicationServices_AmazonSES.png" /></div>
+<div id="i13"><img src="img/ApplicationServices_AmazonSQS.png" /></div>
+<div id="i14"><img src="img/ApplicationServices_AmazonSWF.png" /></div>
+<div id="i15"><img src="img/ApplicationServices_AppStream.png" /></div>
+<div id="i16"><img src="img/Compute_AmazonEC2.png" /></div>
+<div id="i17"><img src="img/Compute_AmazonEC2ContainerRegistry.png" /></div>
+<div id="i18"><img src="img/Compute_AmazonEC2ContainerService.png" /></div>
+<div id="i19"><img src="img/Compute_AmazonEC2_AMI.png" /></div>
+<div id="i20"><img src="img/Compute_ElasticBeanstalk.png" /></div>
+<div id="i21"><img src="img/Compute_ElasticLoadBalancing.png" /></div>
+<div id="i22"><img src="img/Compute_Lambda.png" /></div>
+<div id="i23"><img src="img/Database_AWSDatabaseMigrationService.png" /></div>
+<div id="i24"><img src="img/Database_AmazonElasticCache.png" /></div>
+<div id="i25"><img src="img/Database_AmazonRDS.png" /></div>
+<div id="i26"><img src="img/Database_AmazonRedShift.png" /></div>
+<div id="i27"><img src="img/StorageContentDelivery_snapshot.png" /></div>
+<div id="i28"><img src="img/Database_DynamoDB.png" /></div>
+<div id="i29"><img src="img/DeploymentManagement_AWSCodeCommit.png" /></div>
+<div id="i30"><img src="img/DeploymentManagement_CodeDeploy.png" /></div>
+<div id="i31"><img src="img/DeploymentManagement_CodePipeline.png" /></div>
+<div id="i32"><img src="img/InternetOfThings_AWS-IOT.png" /></div>
+<div id="i33"><img src="img/ManagementTools_CloudFormation.png" /></div>
+<div id="i34"><img src="img/ManagementTools_CloudTrail.png" /></div>
+<div id="i35"><img src="img/ManagementTools_CloudWatch.png" /></div>
+<div id="i36"><img src="img/ManagementTools_Config.png" /></div>
+<div id="i37"><img src="img/ManagementTools_OpsWorks.png" /></div>
+<div id="i38"><img src="img/MobileServices_AWSMobileHub.png" /></div>
+<div id="i39"><img src="img/MobileServices_Cognito.png" /></div>
+<div id="i40"><img src="img/MobileServices_DeviceFarm.png" /></div>
+<div id="i41"><img src="img/MobileServices_MobileAnalytics.png" /></div>
+<div id="i42"><img src="img/MobileServices_SNS.png" /></div>
+<div id="i43"><img src="img/Networking_AWSDirectConnect.png" /></div>
+<div id="i44"><img src="img/Networking_AmazonVPC.png" /></div>
+<div id="i45"><img src="img/Networking_Route53.png" /></div>
+<div id="i46"><img src="img/SecurityIdentity_CloudHSM.png" /></div>
+<div id="i47"><img src="img/SecurityIdentity_DirectoryService.png" /></div>
+<div id="i48"><img src="img/SecurityIdentity_IdentityAccessManagement.png" /></div>
+<div id="i49"><img src="img/SecurityIdentity_KeyManagementService.png" /></div>
+<div id="i50"><img src="img/ManagementTools_ServiceCatalog.png" /></div>
+<div id="i51"><img src="img/SecurityIdentity_TrustedAdvisor.png" /></div>
+<div id="i52"><img src="img/SecurityIdentity_WebAppFirewall.png" /></div>
+<div id="i53"><img src="img/StorageContentDelivery_AWSIMportExport.png" /></div>
+<div id="i54"><img src="img/StorageContentDelivery_AmazonCloudFront.png" /></div>
+<div id="i55"><img src="img/StorageContentDelivery_AmazonGlacier.png" /></div>
+<div id="i56"><img src="img/StorageContentDelivery_AmazonS3.png" /></div>
+<div id="i57"><img src="img/StorageContentDelivery_AmazonStorageGateway.png" /></div>
+<div id="i58"><img src="img/StorageContentDelivery_EFS.png" /></div>
+<div id="i59"><img src="img/StorageContentDelivery_Snowball.png" /></div>
+<div id="i60"><img src="img/Security-Identity_AmazonInspector.png" /></div>
+<div id="i61"><img src="img/SecurityIdentity_CertificateManager.png" /></div>
+
+<div id="i62"><img src="img/Compute_AmazonEC2_AutoScaling.png" /></div>
+<div id="i63"><img src="img/Compute_AmazonEC2_Spotinstance.png" /></div>
+<div id="i64"><img src="img/Networking_AmazonVPC_internetgateway.png" /></div>
+<div id="i65"><img src="img/Networking_AmazonVPC_VPNgateway.png" /></div>
+<div id="i66"><img src="img/Networking_AmazonVPC_VPCpeering.png" /></div>
+<div id="i67"><img src="img/Networking_AmazonRoute53_hostedzone.png" /></div>
+<div id="i68"><img src="img/StorageContentDelivery_AmazonS3_bucket.png" /></div>
+<div id="i69"><img src="img/StorageContentDelivery_AmazonCloudFront_edgelocation.png" /></div>
+<div id="i70"><img src="img/StorageContentDelivery_AmazonEBS.png" /></div>
+
+</body></html>
