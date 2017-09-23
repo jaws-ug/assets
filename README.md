@@ -13,10 +13,11 @@ JAWS-UG arranged Karuta  game for learning AWS service.
 
 ## Rule
 1 - Lay out AWS icon cards.  
-2 - Someone reads out the description of AWS service.
-3 - All players search for the AWS icon card he read.
-4 - The player who finds this card first gets to keep the card.
-5 - The winner of the game is the player who collects the most icon cards.
+2 - Someone reads out the description of AWS service.  
+3 - All players search for the AWS icon card he read.  
+4 - The player who finds this card first gets to keep the card.  
+5 - The winner of the game is the player who collects the most icon cards.  
+
 
 ## AWSKaruta-EN
 It is reading system for AWS-Karuta.
