@@ -10,3 +10,7 @@
 
 麻雀牌の印刷用データです。
 
+# EventTemplate
+
+* DoorKeeperやConnpassでイベントを作成する際の雛形です
+* 拡張子はマークダウン形式の `.md` です。
