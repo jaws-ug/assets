@@ -1,10 +1,9 @@
 # EventTemplate
-* DoorKeeperやConnpassでイベントを作成する際の雛形を置きます。
+* Connpassでイベントを作成する際の雛形を置きます。
 * 拡張子はマークダウン形式の`.md`です。
 
 ## マークダウンとは
 * [マークダウンとは](http://www.markdown.jp/what-is-markdown/)
-  - DoorKeeper[マークダウンチートシート](http://support.doorkeeper.jp/article/90-markdown)
   - Connpass[マークダウンチートシート](http://help.connpass.com/organizers/markdown)
 
 ## 雛形の種類
